@@ -52,4 +52,14 @@ public interface HeroRepository extends MongoRepository<Hero, String> {
 	 */
 	@Tailable
 	List<Hero> findWithTailableCursorBy();
+	
+	/**
+	 * String query deleting one entity.
+	 *
+	 * @param id
+	 * @return
+	 */
+	@Query(value = "{ 'id': ?0}", delete = true)
+	Long deleteById(Integer id);
+
 }
