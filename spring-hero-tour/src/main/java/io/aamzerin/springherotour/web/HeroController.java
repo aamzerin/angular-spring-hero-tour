@@ -48,4 +48,11 @@ public class HeroController {
 		System.out.println("deleteHero called, id : " + id);
 		return heroRepository.deleteById(id);
 	}
+	
+	@GetMapping("findByNameTerm")
+	public List<Hero> findByNameTerm(@PathVariable(value = "name") String name) {
+		System.out.println("findByNameTerm called");
+		return heroRepository.findByNameTerm(name);
+	}
+	
 }

@@ -34,6 +34,16 @@ public interface HeroRepository extends MongoRepository<Hero, String> {
 	 * @return
 	 */
 	List<Hero> findByName(String name);
+	
+	/**
+	 * Derived query selecting by {@code lastname}. {@code lastname} uses deferred resolution that does not require
+	 * blocking to obtain the parameter value.
+	 *
+	 * @param lastname
+	 * @return
+	 */
+	@Query("{'name': {$regex: ?0 }})")
+    List<Hero> findByNameTerm(String name);
 
 	/**
 	 * Derived query selecting by {@code firstname} and {@code lastname}. {@code firstname} uses deferred resolution that
