@@ -42,7 +42,7 @@ public interface HeroRepository extends MongoRepository<Hero, String> {
 	 * @param lastname
 	 * @return
 	 */
-	@Query("{'name': {$regex: ?0 }})")
+	@Query("{'name': {$regex: ?0, $options : 'i' }})")
     List<Hero> findByNameTerm(String name);
 
 	/**

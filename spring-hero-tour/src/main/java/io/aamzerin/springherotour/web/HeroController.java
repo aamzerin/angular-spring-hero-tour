@@ -49,9 +49,9 @@ public class HeroController {
 		return heroRepository.deleteById(id);
 	}
 	
-	@GetMapping("findByNameTerm")
-	public List<Hero> findByNameTerm(@PathVariable(value = "name") String name) {
-		System.out.println("findByNameTerm called");
+	@GetMapping("searchHeroes/{name}")
+	public List<Hero> searchHeroes(@PathVariable(value = "name") String name) {
+		System.out.println("searchHeroes called");
 		return heroRepository.findByNameTerm(name);
 	}
 	
