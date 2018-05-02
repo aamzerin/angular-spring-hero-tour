@@ -49,7 +49,7 @@ export class HeroService {
     );
   }
 
-  updateHero(hero: Hero): void{
+  updateHero(hero: Hero){
     this.log(`HeroService : updated hero name=${hero.getname}`);
     return this.http.post<Hero>(this.addHeroUrl, hero, this.httpOptions)
     .pipe(
